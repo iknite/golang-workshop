@@ -1,0 +1,11 @@
+{
+  "name": "golang-workshop",
+  "version": "0.0.1",
+  "scripts": {
+  },
+  "author": "Enrique Paredes <@iknite>",
+  "license": "WTFPL",
+  "dependencies": {
+    "reveal-md": "0.0.24"
+  }
+}
