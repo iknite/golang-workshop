@@ -1,4 +1,4 @@
-.PHONY: slides install run test clean
+.PHONY: slides install run test clean tags
 DEFAULT: install
 
 vendor/:
@@ -27,6 +27,9 @@ test: ENV/GOPATH
 
 build: bin/ ENV/GOPATH
 	@go build -o bin/pitytweet src/pitytweet/main.go
+
+tags:
+	@ctags -R .
 
 clean:
 	@rm -rf vendor/
