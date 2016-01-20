@@ -22,7 +22,7 @@ gopath: vendor/
 	@echo "export GOPATH=$(realpath vendor)"
 
 run: 
-	@eval $(shell make gopath) && go run src/pitytweet/main.go
+	@eval $(shell make gopath) && go run src/pitytweet/main.go --name $(shell cat env/NAME)
 
 test:
 	@eval $(shell make gopath) && go test src/pitytweet/main.go
