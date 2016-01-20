@@ -1,7 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"flag"
+	"fmt"
+)
 
 func main() {
-	fmt.Println("Gopher dixit")
+	var screen_name *string = flag.String("name", "", "twitter user name")
+	flag.Parse()
+
+	fmt.Printf("Pitiest gophers %s", *screen_name)
 }
