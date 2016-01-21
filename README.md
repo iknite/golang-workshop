@@ -1,10 +1,24 @@
 # hello!
 
-This is quick review of the goodies of golang
+```
+package main
 
-----
+import "fmt"
 
-## Background
+func main() {
+	fmt.Println("hello world!")
+}
+
+```
+
+```
+$ go run src/hello/main.go
+hello world!
+```
+
+---
+
+# Background
 
 Go is one of the few that enables parallelism and concurrency in language syntax
 level, instead of provide a library for it.
@@ -17,7 +31,7 @@ Others with similar concepts:
 
 #### CSP vs Actor model
 
-Commincating Sequential Processes `CSP` are a way to pass information trought 
+Communicating Sequential Processes are a way to pass information trough
 a **existing** channel. (ie. Read a file descriptor)
 
 Actor Model are a way to pass information by name (ie. Read a file by name)
@@ -26,8 +40,8 @@ Actor Model are a way to pass information by name (ie. Read a file by name)
 
 ##### Functional Programming Vs Object Oriented Programming
 
-- FP excels at do operations over things (transform/operate)
-- OOP excels at give things over operations (update/change)
+- FP excels at do operations over things (digest/operate)
+- OOP excels at provide things over operations (update/change)
 
 Pure languages don't exists (not Haskell nor old Java)
 
@@ -36,14 +50,9 @@ Pure languages don't exists (not Haskell nor old Java)
 ##### Service Oriented Architecture vs Object Oriented Architecture
 
 - SOA Architects over processes (stateless, microservices, **#hyped**)
-- OOA Architects over resources (statefull, monolit, **#ranted**)
+- OOA Architects over resources (statefull, monolith, **#ranted**)
 
 Grab the good of both worlds when needed
-
-----
-
-# Stop lecturing me!
-And go to the point
 
 ---
 
@@ -60,8 +69,20 @@ And go to the point
 
 - Dependencies are controled by an environment variable **GOPATH** that changes where **go get** installs external
 requirements
-- Test are included out of the box **go test**
-- And so the compiler **go build -o command_name:**
+```
+GOPATH=$(realpath ./t dependencies) go get code.google.com/p/go-tour/gotour
+```
+
+- Test are included out of the box
+```
+go test src/hello/main.go
+```
+
+- And so the compiler
+```
+go build src/hello/main.go -o hello
+```
+
 - easy to deploy **Selfcontained executable FTW!**
 
 ----
@@ -74,28 +95,22 @@ requirements
 
 ----
 
-## Simple Hello world
-
-```
-package main
-
-import "fmt"
-
-func main() {
-	fmt.Println("Gophers dixit, hello world")
-}
-
-```
-
-----
-
-# Object Composition
+## Object Composition
 
 - *Structs* are data types, and it can have methods asociated. (non-virtual)
 - Dynamic method calls only trought Interfaces (Structs without attributes, only virtual methods)
-- Ducktyping (Composition after hand) is the way to go, instead of before hand inheritance
+- Ducktyping by interface matching at variable definition, instead of class composition
 - Closures! lets do more of it
+- *Pointers hurray!
 
+
+---
+
+# Hands on!
+
+```
+ # TODO: deal with oauth is not a 2h thing (for me...)
+```
 
 ---
 
@@ -113,7 +128,8 @@ for twit in user.timeline:
 
 print(sort(users[5:]))
 ```
-A.k.a a typical map/reduce problem (got hadoop?)
+A.k.a a typical map/reduce problem
+
 Thanks @honduco for the idea!!
 
 ----
@@ -122,24 +138,21 @@ Thanks @honduco for the idea!!
 
 Fetch the timeline
 ```
-https://userstream.twitter.com/1.1/user.json?replies=all
+https://dev.twitter.com/rest/reference/get/statuses/user_timeline?screen_name=<screen_name>&count=200
 ```
+#### SCAPPY
 
 Fetch the likes of a twit
 ```
-
+https://twitter.com/<screen_name>/status/<twit_id>
 ```
 
-
 ---
 
+Sorry for party rockin' @fevereng 2016
 
-
-
----
-
+Note:
 # Resources
-
 https://gist.github.com/kachayev/21e7fe149bc5ae0bd878
 https://github.com/adityamenon/Google-IO_2012_Go-Concurrency-Patterns
 http://stackoverflow.com/questions/2078978/functional-programming-vs-object-oriented-programming
@@ -150,7 +163,3 @@ https://en.wikipedia.org/wiki/Actor_model_and_process_calculi_history
 https://en.wikipedia.org/wiki/Actor_model
 https://en.wikipedia.org/wiki/Communicating_sequential_processes
 https://en.wikipedia.org/wiki/Concurrent_computing
-
----
-Sorry for party rockin' @FeverEng 2016
-
